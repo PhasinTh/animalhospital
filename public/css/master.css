@@ -1,0 +1,107 @@
+
+.address p{
+  line-height: 10px;
+}
+
+
+.bg-primary{
+  background-color: #29B6F6;
+}
+
+.bg-dark{
+  background-color: #424242;
+}
+
+.bg-gray{
+  background-color: #A0A0A0;
+}
+
+.color-white{
+    color:white;
+}
+
+
+/* My Card */
+.card-header .title{
+  font-size: 18px;
+}
+
+.huge {
+  font-size: 40px;
+}
+.card-green {
+  border-color: #5cb85c;
+}
+.card-green > .card-header {
+  border-color: #5cb85c;
+  color: white;
+  background-color: #5cb85c;
+}
+.card-green > a {
+  color: #5cb85c;
+}
+.card-green > a:hover {
+  color: #3d8b3d;
+}
+.card-green a {
+  text-decoration: none;
+  color: white;
+}
+
+.card-red {
+  border-color: #d9534f;
+}
+.card-red > .card-header {
+  border-color: #d9534f;
+  color: white;
+  background-color: #d9534f;
+}
+.card-red > a {
+  color: #d9534f;
+}
+.card-red > a:hover {
+  color: #b52b27;
+}
+.card-red a {
+  text-decoration: none;
+  color: white;
+}
+
+.card-yellow {
+  border-color: #f0ad4e;
+}
+.card-yellow > .card-header {
+  border-color: #f0ad4e;
+  color: white;
+  background-color: #f0ad4e;
+}
+.card-yellow > a {
+  color: #df8a13;
+}
+.card-yellow > a:hover {
+  color: #df8a13;
+}
+.card-yellow a {
+  text-decoration: none;
+  color: white;
+}
+
+.card-blue {
+  border-color: #29B6F6;
+}
+.card-blue > .card-header {
+  border-color: #29B6F6;
+  color: white;
+  background-color: #29B6F6;
+}
+.card-blue > a {
+  text-decoration: none!important;
+  color: #f0ad4e;
+}
+.card-blue > a:hover {
+  color: #df8a13;
+}
+.card-blue a {
+  text-decoration: none;
+  color: white;
+}
