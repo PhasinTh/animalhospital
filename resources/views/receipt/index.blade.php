@@ -4,26 +4,26 @@
       <div class="row my-5 text-center ">
         <div class="col-md-3 px-0">
           <button class="btn btn-lg btn-info w-100 select" id="all" >
-            <i class="fa fa-users fa-2x"></i>
+            <i class="fa  fa-2x">{{$receipts->count()}}</i>
             <p class="">บิลทั้งหมด</p>
           </button>
         </div>
         <div class="col-md-3 px-0">
           <button class="btn btn-lg btn-secondary w-100 select" id="daily" >
-            <i class="fa fa-user-md fa-2x"></i>
+            <i class="fa  fa-2x">{{  $receipts->where('created_at', '>=', \Carbon\Carbon::today())->count() }}</i>
             <p class="">ประจำวัน</p>
           </button>
         </div>
         <div class="col-md-3 px-0">
           <button  class="btn btn-lg btn-dark w-100 select" id="waiting" >
-            <i class="fa fa-user-tie fa-2x"></i>
+            <i class="fa  fa-2x">{{  $receipts->where('status','รอ')->count() }}</i>
             <p class="">ยังไม่ชำระ</p>
           </button>
         </div>
 
         <div class="col-md-3 px-0">
           <button  class="btn btn-lg btn-success w-100 select" id="done" >
-            <i class="fa fa-user fa-2x"></i>
+            <i class="fa fa-2x">{{  $receipts->where('status','ชำระแล้ว')->count() }}</i>
             <p class="">ชำระแล้ว</p>
           </button>
         </div>

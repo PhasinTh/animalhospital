@@ -1,96 +1,99 @@
 @extends('layout.app')
 
 @section('content')
-  <div class="row bg-gray">
-    <div class="container-fluid py-2">
-      <h5>ข้อมูลเจ้าของสัตว์</h5>
+  <div class="card mb-3">
+    <div class="card-header">
+      <i class="fa fa-user"></i> ข้อมูลเจ้าของสัตว์
     </div>
-  </div>
+    <div class="card-body">
+      <div class="container pt-3">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-12">
+            {!! Form::open(['route' => 'pet.store','id'=>'form']) !!}
+            <div class="row form-group">
+              {!! Form::label("customername", "ชื่อ - สกุล", ["class" => "col-2 text-right"]) !!}
+              {!! Form::text("customername", "", ["class" => "col-8 form-control"]) !!}
+            </div>
 
-  <div class="container pt-3">
-    <div class="row justify-content-center">
-      <div class="col-md-8 col-12">
-        {!! Form::open(['route' => 'pet.store','id'=>'form']) !!}
-        <div class="row form-group">
-          {!! Form::label("customername", "ชื่อ - สกุล", ["class" => "col-2 text-right"]) !!}
-          {!! Form::text("customername", "", ["class" => "col-8 form-control"]) !!}
-        </div>
+            <div class="row form-group">
+              {!! Form::label("customeremail", "email", ["class" => "col-2 text-right"]) !!}
+              {!! Form::text("customeremail", "", ["class" => "col-8 form-control"]) !!}
+            </div>
 
-        <div class="row form-group">
-          {!! Form::label("customeremail", "email", ["class" => "col-2 text-right"]) !!}
-          {!! Form::text("customeremail", "", ["class" => "col-8 form-control"]) !!}
-        </div>
+            <div class="row form-group">
+              {!! Form::label("customeraddress", "ที่อยู่", ["class" => "col-2 text-right"]) !!}
+              {!! Form::textarea("customeraddress", null, ["class" => "col-8 form-control","rows"=>"5"]) !!}
+            </div>
 
-        <div class="row form-group">
-          {!! Form::label("customeraddress", "ที่อยู่", ["class" => "col-2 text-right"]) !!}
-          {!! Form::textarea("customeraddress", null, ["class" => "col-8 form-control","rows"=>"5"]) !!}
-        </div>
-
-        <div class="row form-group">
-          {!! Form::label("customertel", "เบอร์โทร", ["class" => "col-2 text-right"]) !!}
-          {!! Form::text("customertel", "", ["class" => "col-8 form-control"]) !!}
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row bg-gray">
-    <div class="container-fluid py-2">
-      <h5>ข้อมูลสัตว์เลี้ยง</h5>
-    </div>
-  </div>
-
-  <div class="container pt-3">
-    <div class="row justify-content-center">
-      <div class="col-md-8 col-12">
-        {{-- {!! Form::open(['route' => 'pet.store']) !!} --}}
-        <div class="row form-group">
-          {!! Form::label("petname", "ชื่อ", ["class" => "col-2 text-right"]) !!}
-          {!! Form::text("petname", "", ["class" => "col-5 form-control"]) !!}
-
-          {!! Form::label("petage", "อายุ", ["class" => "col-2 text-right"]) !!}
-          {!! Form::text("petage", "", ["class" => "col-3 form-control"]) !!}
-        </div>
-
-        <div class="row form-group">
-          {!! Form::label("petspicies", "สายพันธุ์", ["class" => "col-2 text-right"]) !!}
-          {!! Form::text("petspicies", "", ["class" => "col-5 form-control"]) !!}
-
-          {!! Form::label("petsex", "เพศ", ["class" => "col-2 text-right"]) !!}
-          {{ Form::select('petsex',["ผู้"=>"ผู้",'เมีย'=>'เมีย'],null,array('class'=>'col-3 form-control')) }}
-
-        </div>
-
-        <div class="row form-group">
-          {{ Form::label('pettype_id','ประเภท :',["class" => "col-2 text-right"]) }}
-          {{ Form::select('pettype_id',$pettypes,null,array('class'=>'col-8 form-control')) }}
-          <a class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-plus-circle"></i></a>
-        </div>
-
-        <div class="row form-group">
-          {!! Form::label("petscar", "ตำหนิ", ["class" => "col-2 text-right"]) !!}
-          {!! Form::text("petscar", "", ["class" => "col-8 form-control"]) !!}
-        </div>
-
-        <div class="row form-group">
-          {!! Form::label("petallergy", "แพ้ยา", ["class" => "col-2 text-right"]) !!}
-          {!! Form::text("petallergy", "", ["class" => "col-8 form-control"]) !!}
-        </div>
-
-
-        <div class="row">
-          <div class="col-md-12">
-            <div class="row justify-content-center">
-              <a href="#" class="btn btn-xs btn-danger">ยกเลิก</a>
-              {!! Form::submit("บันทึก", ['class' => 'btn btn-xs btn-success']) !!}
-              {!! Form::close() !!}
+            <div class="row form-group">
+              {!! Form::label("customertel", "เบอร์โทร", ["class" => "col-2 text-right"]) !!}
+              {!! Form::text("customertel", "", ["class" => "col-8 form-control"]) !!}
             </div>
           </div>
-
         </div>
       </div>
     </div>
   </div>
+
+  <div class="card mb-3">
+    <div class="card-header">
+      <i class="fa fa-paw"></i> ข้อมูลสัตว์เลี้ยง
+    </div>
+    <div class="card-body">
+      <div class="container pt-3">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-12">
+            {{-- {!! Form::open(['route' => 'pet.store']) !!} --}}
+            <div class="row form-group">
+              {!! Form::label("petname", "ชื่อ", ["class" => "col-2 text-right"]) !!}
+              {!! Form::text("petname", "", ["class" => "col-5 form-control"]) !!}
+
+              {!! Form::label("petage", "อายุ", ["class" => "col-2 text-right"]) !!}
+              {!! Form::text("petage", "", ["class" => "col-3 form-control"]) !!}
+            </div>
+
+            <div class="row form-group">
+              {!! Form::label("petspicies", "สายพันธุ์", ["class" => "col-2 text-right"]) !!}
+              {!! Form::text("petspicies", "", ["class" => "col-5 form-control"]) !!}
+
+              {!! Form::label("petsex", "เพศ", ["class" => "col-2 text-right"]) !!}
+              {{ Form::select('petsex',["ผู้"=>"ผู้",'เมีย'=>'เมีย'],null,array('class'=>'col-3 form-control')) }}
+
+            </div>
+
+            <div class="row form-group">
+              {{ Form::label('pettype_id','ประเภท :',["class" => "col-2 text-right"]) }}
+              {{ Form::select('pettype_id',$pettypes,null,array('class'=>'col-8 form-control')) }}
+              <a class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-plus-circle"></i></a>
+            </div>
+
+            <div class="row form-group">
+              {!! Form::label("petscar", "ตำหนิ", ["class" => "col-2 text-right"]) !!}
+              {!! Form::text("petscar", "", ["class" => "col-8 form-control"]) !!}
+            </div>
+
+            <div class="row form-group">
+              {!! Form::label("petallergy", "แพ้ยา", ["class" => "col-2 text-right"]) !!}
+              {!! Form::text("petallergy", "", ["class" => "col-8 form-control"]) !!}
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row justify-content-center">
+                  <a href="#" class="btn btn-xs btn-danger">ยกเลิก</a>
+                  {!! Form::submit("บันทึก", ['class' => 'btn btn-xs btn-success']) !!}
+                  {!! Form::close() !!}
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 
   <!-- Modal -->

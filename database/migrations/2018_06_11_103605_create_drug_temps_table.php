@@ -17,6 +17,10 @@ class CreateDrugTempsTable extends Migration
             $table->increments('id');
             $table->unsignedinteger('drug_id');
             $table->foreign('drug_id')->references('id')->on('drugs')->onDelete('cascade');
+
+            $table->unsignedinteger('emp_id');
+            $table->foreign('emp_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->integer('quantity');
             $table->timestamps();
         });

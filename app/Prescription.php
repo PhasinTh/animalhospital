@@ -20,4 +20,9 @@ class Prescription extends Model
     {
       return $this->hasMany('App\PrescriptionDetail');
     }
+
+    public function recript()
+    {
+      return $this->hasOne('App\Recript');
+    }
 }

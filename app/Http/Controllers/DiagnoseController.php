@@ -37,7 +37,7 @@ class DiagnoseController extends Controller
      */
     public function create()
     {
-        return view('diagnose.create');
+
     }
 
     /**
@@ -48,10 +48,6 @@ class DiagnoseController extends Controller
      */
     public function store(Request $request)
     {
-
-
-
-        // dd($request->all());
         $appointment = $request->input('appointment');
         if($appointment == "นัดหมาย"){
           $request->validate([
@@ -71,8 +67,6 @@ class DiagnoseController extends Controller
 
         $register_id = $request->input('register_id');
         $diagnose = $request->input('diagnose');
-
-        //
         $diagno = new Diagnose ;
         $diagno->emp_id = $request->user()->id;
         $diagno->register_id = $register_id;
@@ -106,13 +100,9 @@ class DiagnoseController extends Controller
         $regis = Register::find($register_id);
         $regis->status = "ตรวจแล้ว";
         $regis->save();
-
         DrugTemp::truncate();
-
-
         Session::flash('success','ทำรายการสำเร็จแล้ว');
         return redirect()->route('diagnose.index');
-
     }
 
     /**

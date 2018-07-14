@@ -5,7 +5,7 @@
     <div class="row justify-content-center pt-5">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-white bg-info">{{ __('Login') }}</div>
+                <div class="card-header text-white bg-info">เข้าสู่ระบบ</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -39,7 +39,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="checkbox">
                                     <label>
@@ -47,22 +47,20 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                               <a class="btn btn-success" href="{{ route('employee.create') }}">
-                                  Register
+                                  ลงทะเบียน
                               </a>
-                              
+
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
+                                    เข้าสู่ระบบ
                                 </button>
 
-
-
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
+                                    ลืมรหัสผ่าน
                                 </a>
 
 

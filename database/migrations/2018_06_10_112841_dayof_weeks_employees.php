@@ -24,7 +24,7 @@ class DayofWeeksEmployees extends Migration
           $table->unsignedInteger('employee_id');
           $table->foreign('employee_id')
           ->references('id')
-          ->on('employees')
+          ->on('users')
           ->onDelete('cascade');
           $table->timestamps();
       });

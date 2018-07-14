@@ -18,6 +18,14 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->text('address')->nullable();
+            $table->string('tel')->nullable();
+            $table->unsignedInteger('emptypeId');
+            $table->foreign('emptypeId')
+            ->references('id')
+            ->on('emptypes')
+            ->onDelete('cascade');
+
             $table->rememberToken();
             $table->timestamps();
         });

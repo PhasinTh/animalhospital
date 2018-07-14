@@ -8,7 +8,7 @@ use Cache;
 class User extends Authenticatable
 {
     use Notifiable;
-    protected $table = "employees";
+    // protected $table = "employees";
 
     /**
      * The attributes that are mass assignable.

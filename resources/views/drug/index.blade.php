@@ -53,10 +53,8 @@
           <table class="table table-bordered text-center" id="chargetable">
             <thead>
               <tr>
-                <th>ชื่อยา</th>
+                <th>ชื่อ</th>
                 <th>คำอธิบาย</th>
-                <th>จำนวน</th>
-                <th>หน่วย</th>
                 <th>ราคา</th>
                 <th><a href="{{ url('charge/create')}}" class="btn btn-xs btn-success">ADD</a></th>
               </tr>
@@ -66,8 +64,6 @@
                 <tr>
                   <td>{{ $charge->name }}</td>
                   <td>{{ $charge->description }}</td>
-                  <td>{{ $charge->qty }}</td>
-                  <td>{{ $charge->unit}}</td>
                   <td>{{ $charge->price}}</td>
                   <td>
                     <div class="row justify-content-center">

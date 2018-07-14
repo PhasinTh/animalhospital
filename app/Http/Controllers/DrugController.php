@@ -15,6 +15,7 @@ class DrugController extends Controller
 
   public function __construct()
   {
+    $this->middleware('auth');
     $url = Route::currentRouteName();
     $index = strpos($url,".");
     $url = substr($url,0,$index);
@@ -63,15 +64,19 @@ class DrugController extends Controller
     {
         $request->validate([
           'drugname'    =>  'required',
-          'drugdetail'  =>  'required|nullable',
-          'drugqty'  =>  'required|numeric',
+          'drugdetail'  =>  'nullable',
+          'drugqty'  =>  'nullable|numeric',
           'drugprice'  =>  'required|numeric'
         ]);
 
         $drug = new Drug;
         $drug->name = $request->input('drugname');
         $drug->description = $request->input('drugdetail');
-        $drug->qty = $request->input('drugqty');
+        if($request->input('drugqty'))
+          $drug->qty = $request->input('drugqty');
+        else {
+          $drug->qty = 1;
+        }
         $drug->unit = $request->input('drugunit');
         $drug->price = $request->input('drugprice');
         $drug->drugtype_id = $this->drugtype_id;
@@ -124,7 +129,6 @@ class DrugController extends Controller
           'name'    =>  'required',
           'description'  =>  'required|nullable',
           'qty'  =>  'required|numeric',
-          'unit'  =>  'required',
           'price'  =>  'required|numeric'
         ]);
 

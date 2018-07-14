@@ -25,7 +25,7 @@ class CreateRecriptsTable extends Migration
             $table->unsignedInteger('employee_id');
             $table->foreign('employee_id')
             ->references('id')
-            ->on('employees')
+            ->on('users')
             ->onDelete('cascade');
 
             $table->double('total',8,2);

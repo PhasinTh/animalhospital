@@ -30,6 +30,5 @@ class HomeController extends Controller
         $types[$pettype->id] = $pettype->name;
       }
       return view('home')->withPettypes($types);
-      // return view('layout.app2');
     }
 }

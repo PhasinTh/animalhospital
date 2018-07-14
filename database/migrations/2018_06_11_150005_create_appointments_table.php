@@ -26,7 +26,7 @@ class CreateAppointmentsTable extends Migration
             $table->unsignedInteger('employee_id');
             $table->foreign('employee_id')
             ->references('id')
-            ->on('employees')
+            ->on('users')
             ->onDelete('cascade');
             $table->dateTime('date');
             $table->string('status')->nullable();

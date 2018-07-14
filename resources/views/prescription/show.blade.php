@@ -97,10 +97,16 @@
             </div>
 
             <div class="row justify-content-end pt-4 pr-5 pb-4">
+              @if ($prescription->status == "สำเร็จ")
+                @if ($prescription->recript)
+                  <a href="{{ route('receipt.show', $prescription->recript->id ) }}" class="btn btn-xs btn-success mx-2">ดูรายละเอียด</a>
+                @endif
+              @else
               {{-- <a href="" class="btn btn-xs btn-danger mx-2">ยกเลิก</a> --}}
               {{-- <a href="" class="btn btn-xs btn-success mx-2">ส่งตรวจ/ยา</a> --}}
               {!! Form::submit("ส่งห้องการเงิน", ['class'=>'btn btn-xs btn-success mx-2']) !!}
               {!! Form::close() !!}
+              @endif
             </div>
           </div>
       </div>

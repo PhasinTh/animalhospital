@@ -11,10 +11,10 @@
     </div>
     <div class="card-body">
       <div class="container">
-        <table class="table table-borderless table-striped">
+        <table class="table table-borderless">
             @foreach ($dayofweek as $key => $value)
               <tr>
-                <th style="width:10%;" class="bg-gray text-white">{{ $value->name }}</th>
+                <th style="width:10%;" class="bg-gray text-white text-center">{{ $value->name }}</th>
                 @foreach ($value->employees as $key => $value)
                   <td>
                     <a href="{{route('employee.show',$value->id)}}" class="btn btn-success">{{ $value->name }}</a>

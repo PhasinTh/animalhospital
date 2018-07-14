@@ -50,7 +50,11 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->user()->name);.
+        // dd($request->user()->name);
+        $request->validate([
+          'employee_id' => 'required',
+        ]);
+
         $id = $request->input('pet_id');
         $register = Register::where('pet_id', $id)->first();
 
@@ -59,6 +63,7 @@ class RegisterController extends Controller
         }else {
           $reg = new Register;
         }
+
         $reg->pet_id = $request->input('pet_id');
         $reg->emp_id = $request->input('employee_id');
         $reg->status = "ส่งตรวจ";
@@ -66,7 +71,6 @@ class RegisterController extends Controller
 
         Session::flash('success','ส่งตรวจแล้ว');
         return redirect()->route('diagnose.index');
-
     }
 
     /**

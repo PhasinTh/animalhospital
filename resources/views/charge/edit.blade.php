@@ -21,15 +21,15 @@
                   {!! Form::textarea("description", null, ["class" => "col-8 form-control","rows"=>'5']) !!}
                 </div>
 
-                <div class="row form-group">
-                  {!! Form::label("qty", "จำนวน", ["class" => "col-2 text-right"]) !!}
-                  {!! Form::text("qty", null, ["class" => "col-8 form-control"]) !!}
-                </div>
+                {{-- <div class="row form-group"> --}}
+                  {{-- {!! Form::label("qty", "จำนวน", ["class" => "col-2 text-right"]) !!} --}}
+                  {!! Form::text("qty", null, ["class" => "col-8 form-control","hidden"=>"true"]) !!}
+                {{-- </div> --}}
 
-                <div class="row form-group">
+                {{-- <div class="row form-group">
                   {!! Form::label("unit", "หน่วย", ["class" => "col-2 text-right"]) !!}
                   {!! Form::text("unit", null, ["class" => "col-8 form-control"]) !!}
-                </div>
+                </div> --}}
 
                 <div class="row form-group">
                   {!! Form::label("price", "ราคา", ["class" => "col-2 text-right"]) !!}

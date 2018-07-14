@@ -24,7 +24,7 @@
         @endphp
         @foreach ($temp as $key => $value)
           @if ($value)
-            @php $path .= $value.'.' @endphp
+            @php $path .= $value.'/' @endphp
             <li class="breadcrumb-item">
               @if (++$i === $numItems)
                 {{ $value }}

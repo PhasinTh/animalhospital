@@ -21,15 +21,15 @@
                   {!! Form::textarea("drugdetail", "", ["class" => "col-8 form-control","rows"=>'5']) !!}
                 </div>
 
-                <div class="row form-group">
+                {{-- <div class="row form-group">
                   {!! Form::label("drugqty", "จำนวน", ["class" => "col-2 text-right"]) !!}
                   {!! Form::text("drugqty", "", ["class" => "col-8 form-control"]) !!}
-                </div>
+                </div> --}}
 
-                <div class="row form-group">
+                {{-- <div class="row form-group">
                   {!! Form::label("drugunit", "หน่วย", ["class" => "col-2 text-right"]) !!}
                   {!! Form::text("drugunit", "", ["class" => "col-8 form-control"]) !!}
-                </div>
+                </div> --}}
 
                 <div class="row form-group">
                   {!! Form::label("drugprice", "ราคา", ["class" => "col-2 text-right"]) !!}

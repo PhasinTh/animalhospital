@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(DayofWeekSeeder::class);
         $this->call(PettypeSeeder::class);
         $this->call(DrugTypeSeeder::class);
+        $this->call(SettingSeeder::class);
     }
 }

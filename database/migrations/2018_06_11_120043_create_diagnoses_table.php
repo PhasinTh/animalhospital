@@ -18,7 +18,7 @@ class CreateDiagnosesTable extends Migration
             $table->unsignedInteger('emp_id');
             $table->foreign('emp_id')
             ->references('id')
-            ->on('employees')
+            ->on('users')
             ->onDelete('cascade');
             $table->unsignedInteger('register_id');
             $table->foreign('register_id')

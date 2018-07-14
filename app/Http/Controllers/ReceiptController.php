@@ -11,8 +11,14 @@ use App\Appointment;
 use PDF;
 use Carbon\Carbon;
 use App\Setting;
+use App\Drug;
 class ReceiptController extends Controller
 {
+
+    public function __construct()
+    {
+      $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -44,7 +50,7 @@ class ReceiptController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'prescription_id' => 'required'
+            'prescription_id' => 'required|unique:recripts'
         ]);
 
         $prescription_id = $request->input('prescription_id');
@@ -54,6 +60,10 @@ class ReceiptController extends Controller
         $total = 0;
         foreach ($prescription->prescriptioneetail as $temp) {
           $total += $temp->drug->price * $temp->quantity;
+          $drug = Drug::find($temp->drug->id);
+          if($drug->drugtype_id == 1)
+            $drug->qty = $drug->qty - $temp->quantity;
+          $drug->save();
         }
 
         $receipt = new Recript;

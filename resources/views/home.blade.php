@@ -118,7 +118,7 @@
               </td>
               <td class="text-center">
                 <button type="button" name="button" ng-click="history(pet.id)" class="btn btn-info">ประวัติการรักษา </button>
-                <button type="button" name="button" class="btn btn-danger" ng-click="redirect(pet.id)">ส่งตรวจ</button>
+                <button type="button" name="button" class="btn btn-danger" ng-click="redirect(pet.id)" ng-if="pet.registers_count == 0">ส่งตรวจ</button>
               </td>
             </tr>
           </table>

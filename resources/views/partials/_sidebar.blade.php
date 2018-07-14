@@ -19,7 +19,7 @@
 
   <a class="@if(preg_match("[^drug]",Request::path())) active @else '' @endif" href="{{ url('drug') }}"><i class="fa fa-pills"></i> Drug</a>
   <a class="@if(preg_match("[^receipt]",Request::path())) active @else '' @endif"  href="{{ url('receipt') }}"><i class="fa fa-money-check-alt"></i> ห้องการเงิน <span class="badge badge-light">{{Helpers::waitingReceipt()}}</span></a>
-  <a class="@if(preg_match("[^prescription]",Request::path())) active @else '' @endif"  href="{{ url('prescription') }}"><i class="fas fa-receipt"></i> ห้องยา <span class="badge badge-light">{{Helpers::waitingDrug()}}</span></a>
+  <a class="@if(preg_match("[^prescription]",Request::path())) active @else '' @endif"  href="{{ url('prescription') }}"><i class="fas fa-receipt"></i> ห้องจ่ายยา <span class="badge badge-light">{{Helpers::waitingDrug()}}</span></a>
   <a class="@if(preg_match("[^diagnose]",Request::path())) active @else '' @endif"  href="{{ url('diagnose') }}"><i class="fas fa-stethoscope"></i> ห้องตรวจ <span class="badge badge-light">{{Helpers::waitingDiagnose()}}</span></a>
 
 

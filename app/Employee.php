@@ -7,6 +7,7 @@ use Cache;
 
 class Employee extends Model
 {
+    protected $table = "users";
     public function workdays()
     {
       return $this->belongsToMany('App\DayofWeek')->withTimestamps();

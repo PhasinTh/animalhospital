@@ -12,7 +12,7 @@
               <div class="col-md-8 col-12">
                 {!! Form::open(['route' => 'drug.store']) !!}
                 <div class="row form-group">
-                  {!! Form::label("drugname", "ชื่อยา", ["class" => "col-2 text-right"]) !!}
+                  {!! Form::label("drugname", "ชื่อยา *", ["class" => "col-2 text-right"]) !!}
                   {!! Form::text("drugname", "", ["class" => "col-8 form-control"]) !!}
                 </div>
 
@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="row form-group">
-                  {!! Form::label("drugprice", "ราคา", ["class" => "col-2 text-right"]) !!}
+                  {!! Form::label("drugprice", "ราคา *", ["class" => "col-2 text-right"]) !!}
                   {!! Form::text("drugprice", "", ["class" => "col-8 form-control"]) !!}
                 </div>
               </div>

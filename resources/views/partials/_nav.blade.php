@@ -12,40 +12,41 @@
           <span class="nav-link-text">Home</span>
         </a>
       </li>
+      <li class="nav-item @if(preg_match("[^drug]",Request::path())) active @else '' @endif" href="{{ url('drug') }}" data-toggle="tooltip" data-placement="right" title="ยา">
+        <a class="nav-link" href="{{ url('drug') }}">
+          <i class="fa fa-fw fa-pills"></i>
+          <span class="nav-link-text">ข้อมูลยา</span>
+        </a>
+      </li>
+
       <li class="nav-item @if(preg_match("[^pet]",Request::path())) active @else '' @endif" data-toggle="tooltip" data-placement="right" title="Pet">
         <a class="nav-link" href="{{ url('pet') }}">
           <i class="fa fa-fw fa-paw"></i>
-          <span class="nav-link-text">Pet</span>
+          <span class="nav-link-text">ข้อมูลสัตว์เลี้ยงและเจ้าของ</span>
         </a>
       </li>
       <li class="nav-item @if(preg_match("[^employee]",Request::path())) active @else '' @endif" data-toggle="tooltip" data-placement="right" title="Personal">
         <a class="nav-link" href="{{ url('employee') }}">
           <i class="fa fa-fw fa-user"></i>
-          <span class="nav-link-text">Personal</span>
+          <span class="nav-link-text">ข้อมูลพนักงาน</span>
         </a>
       </li>
       <li class="nav-item @if(preg_match("[^appointment]",Request::path())) active @else '' @endif" data-toggle="tooltip" data-placement="right" title="Appointment">
         <a class="nav-link" href="{{ url('appointment') }}" >
           <i class="far fa-fw fa-calendar-alt"></i>
-          <span class="nav-link-text">Appointment</span>
+          <span class="nav-link-text">ตารางนัดหมาย</span>
         </a>
       </li>
       <li class="nav-item {{Request::is('schedule') ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Schedule">
         <a class="nav-link " href="{{ url('schedule') }}" >
-          <i class="far fa-fw fa-calendar-alt"></i>
-          <span class="nav-link-text">Schedule</span>
+          <i class="far fa-fw fa-calendar"></i>
+          <span class="nav-link-text">ตารางวันทำงาน</span>
         </a>
       </li>
       <li class="nav-item {{Request::is('dailychart') ? 'active' : ''}}" data-toggle="tooltip" data-placement="right" title="Schedule">
         <a class="nav-link " href="{{ url('dailychart') }}" >
-          <i class="far fa-fw fa-calendar-alt"></i>
-          <span class="nav-link-text">Chart</span>
-        </a>
-      </li>
-      <li class="nav-item @if(preg_match("[^drug]",Request::path())) active @else '' @endif" href="{{ url('drug') }}" data-toggle="tooltip" data-placement="right" title="ยา">
-        <a class="nav-link" href="{{ url('drug') }}">
-          <i class="fa fa-fw fa-pills"></i>
-          <span class="nav-link-text">ยา</span>
+          <i class="far fa-fw fa-chart-bar"></i>
+          <span class="nav-link-text">สถิติ</span>
         </a>
       </li>
       <li class="nav-item @if(preg_match("[^receipt]",Request::path())) active @else '' @endif" href="{{ url('receipt') }}" data-toggle="tooltip" data-placement="right" title="ห้องการเงิน">
@@ -57,7 +58,7 @@
       <li class="nav-item @if(preg_match("[^prescription]",Request::path())) active @else '' @endif" href="{{ url('receipt') }}" data-toggle="tooltip" data-placement="right" title="ห้องยา">
         <a class="nav-link" href="{{ url('prescription') }}">
           <i class="fas fa-fw fa-receipt"></i>
-          <span class="nav-link-text">ห้องยา</span> <span class="badge badge-pill badge-light my-1 float-right">{{ Helpers::waitingDrug()}}</span>
+          <span class="nav-link-text">ห้องจ่ายยา</span> <span class="badge badge-pill badge-light my-1 float-right">{{ Helpers::waitingDrug()}}</span>
         </a>
       </li>
       <li class="nav-item @if(preg_match("[^diagnose]",Request::path())) active @else '' @endif" href="{{ url('receipt') }}" data-toggle="tooltip" data-placement="right" title="ห้องตรวจ">
@@ -87,9 +88,6 @@
           @endif
         </ul>
       </li>
-
-
-
     </ul>
     <ul class="navbar-nav sidenav-toggler">
       <li class="nav-item">
@@ -111,7 +109,7 @@
             </span>
           @endif
         </a>
-        <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
           <h6 class="dropdown-header">คิว รอตรวจ:</h6>
           <div class="dropdown-divider"></div>
           @if($queue)
@@ -128,29 +126,16 @@
             @endforeach
           @endif
       </li>
-      <li class="nav-item">
-        <form class="form-inline my-2 my-lg-0 mr-lg-2">
-          <div class="input-group">
-            <input class="form-control" type="text" placeholder="ค้นหา..">
-            <span class="input-group-append">
-              <button class="btn btn-default" type="button">
-                <i class="fa fa-search"></i>
-              </button>
-            </span>
-          </div>
-        </form>
-      </li>
-
       @guest
-          <li><a class="nav-link {{Request::is('login') ? 'active' : ''}}" href="{{ route('login') }}">Login</a></li>
+          <li><a class="nav-link {{Request::is('login') ? 'active' : ''}}" href="{{ route('login') }}">เข้าสู่ระบบ</a></li>
       @else
           <li class="nav-item dropdown">
-              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+              <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                   <i class="fa fa-user-circle"></i>
                   {{ Auth::user()->name }}
-                  <span class="caret"></span>
+                  {{-- <span class="caret"></span> --}}
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item {{ Request::is('profile/'.Auth::user()->name, 'profile/'.Auth::user()->name . '/edit') ? 'active' : null }}" href="{{ route('employee.show',Auth::user()->id) }}">
                       ข้อมูลผู้ใช้
                   </a>

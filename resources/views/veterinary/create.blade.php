@@ -13,19 +13,18 @@
         <div class="col-md-8 col-12">
           {!! Form::open(['route' => 'veterinary.store']) !!}
           <div class="row form-group">
-            {!! Form::label("name", "ชื่อ - สกุล", ["class" => "col-2 text-right"]) !!}
-            {!! Form::text("name", "", ["class" => "col-8 form-control"]) !!}
+            {!! Form::label("name", "ชื่อ - สกุล *", ["class" => "col-2 text-right"]) !!}
+            {!! Form::text("name", "", ["class" => "col-8 form-control","required"]) !!}
           </div>
 
           <div class="row form-group">
-            {!! Form::label("email", "email", ["class" => "col-2 text-right"]) !!}
-            {!! Form::text("email", "", ["class" => "col-8 form-control"]) !!}
+            {!! Form::label("email", "email *", ["class" => "col-2 text-right"]) !!}
+            {!! Form::text("email", "", ["class" => "col-8 form-control","required"]) !!}
           </div>
 
           <div class="row form-group">
-            {!! Form::label("password", "รหัสผ่าน", ["class" => "col-2 text-right"]) !!}
-            {{-- {!! Form::text("password", "", ["class" => "col-8 form-control","type"=>"password"]) !!} --}}
-            {!! Form::password("password", ["class" => "col-8 form-control","type"=>"password"]) !!}
+            {!! Form::label("password", "รหัสผ่าน *", ["class" => "col-2 text-right"]) !!}
+            {!! Form::password("password", ["class" => "col-8 form-control","type"=>"password","required"]) !!}
           </div>
 
           <div class="row form-group">

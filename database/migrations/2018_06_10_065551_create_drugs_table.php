@@ -17,7 +17,7 @@ class CreateDrugsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('description');
-            $table->unsignedInteger('qty');
+            $table->unsignedInteger('qty')->default(1);
             $table->string('unit')->nullable();
             $table->double('price', 8, 2);
 
