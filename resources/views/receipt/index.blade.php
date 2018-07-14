@@ -78,9 +78,6 @@
     </div>
   </div>
 
-  <div class="row justify-content-center">
-    {{ $receipts->links() }}
-  </div>
 
   @section('scripts')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">

@@ -26,7 +26,7 @@ class ReceiptController extends Controller
      */
     public function index()
     {
-        $receipts = Recript::paginate(10);
+        $receipts = Recript::all();
         // dd($receipts[0]->prescription->id);
         return view('receipt.index')->withReceipts($receipts);
     }

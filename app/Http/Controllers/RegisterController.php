@@ -17,11 +17,6 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        // $pets = Pet::with('customer')->with('Pettype')->orderBy('created_at','desc')->paginate(10);
-        // return view('register.index')->withPets($pets);
-        // dd($customers[0]->customer->name);
-
-
 
     }
 
@@ -32,14 +27,7 @@ class RegisterController extends Controller
      */
     public function create()
     {
-      // $pettypes = Pettype::all();
-      //
-      // $types = array();
-      // foreach ($pettypes as $pettype) {
-      //   $types[$pettype->id] = $pettype->name;
-      // }
-      //
-      // return view('register.create')->withPettypes($types);
+      // use api
     }
 
     /**

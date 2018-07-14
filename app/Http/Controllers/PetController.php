@@ -25,7 +25,7 @@ class PetController extends Controller
     public function index()
     {
 
-        $pets = Pet::orderBy('created_at','desc')->paginate(10);
+        $pets = Pet::orderBy('created_at','desc')->get();
         // dd(Register::first()->pet());
         return view('pet.index')->withPets($pets);
 

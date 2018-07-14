@@ -116,12 +116,9 @@
       </div>
 
 
-
-
       @section('scripts')
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
         <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" charset="utf-8"></script>
-
         <script type="text/javascript">
           var id = $("#docID").val();
           var petId;
@@ -140,11 +137,10 @@
 
           function setdata(appid,petid) {
             petId = null;
-            petId = petid;
             appId = null;
+            petId = petid;
             appId = appid;
           };
-
         </script>
 
         <script type="text/javascript">
@@ -187,8 +183,6 @@
               default:
                 done = false;
             }
-
-            // alert(filter)
             if(!done){
               $.fn.dataTableExt.afnFiltering.length = 0;
               $.fn.dataTable.ext.search.push(
@@ -199,15 +193,6 @@
             }
           });
         });
-
-        // var pull = function(element) {
-        //   $.fn.dataTable.ext.search.push(
-        //     function(settings, data, dataIndex ) {
-        //       var status = data[6] || "";
-        //     }
-        //   );
-        // }
-
 
         </script>
       @endsection
