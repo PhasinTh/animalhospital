@@ -15,7 +15,7 @@
                 <th>จำนวน</th>
                 <th>หน่วย</th>
                 <th>ราคา</th>
-                <th><a href="{{ route('drug.create')}}" class="btn btn-xs btn-success">ADD</a></th>
+                <th><a href="{{ route('drug.create')}}" class="btn btn-xs btn-success"><i class="fa fa-plus-circle"></i></a></th>
               </tr>
             </thead>
             <tbody>
@@ -28,9 +28,10 @@
                   <td>{{ $drug->price}}</td>
                   <td>
                     <div class="row justify-content-center">
-                      <a href="{{ route('drug.edit',$drug->id)}}" class="btn btn-xs btn-info">แก้ไข</a>
+                      <a href="{{ route('drug.edit',$drug->id)}}" class="btn btn-xs btn-info"><i class="fa fa-edit"></i>แก้ไข</a>
                       {{ Form::open(['route' => ['drug.destroy', $drug->id], 'method' => 'DELETE']) }}
-                      {{ Form::submit('ลบ', ['class' => 'btn btn-xs btn-danger']) }}
+                      {{-- {{ Form::submit('ลบ', ['class' => 'btn btn-xs btn-danger']) }} --}}
+                      <button type="submit" class="btn btn-xs btn-danger"><i class="fa fa-minus-circle"></i> ลบ</button>
                     </div>
                     {{ Form::close() }}
                  </td>
@@ -56,7 +57,7 @@
                 <th>ชื่อ</th>
                 <th>คำอธิบาย</th>
                 <th>ราคา</th>
-                <th><a href="{{ url('charge/create')}}" class="btn btn-xs btn-success">ADD</a></th>
+                <th><a href="{{ url('charge/create')}}" class="btn btn-xs btn-success"><i class="fa fa-plus-circle"></i></a></th>
               </tr>
             </thead>
             <tbody>
@@ -67,9 +68,11 @@
                   <td>{{ $charge->price}}</td>
                   <td>
                     <div class="row justify-content-center">
-                      <a href="{{ route('charge.edit',$charge->id)}}" class="btn btn-xs btn-info">แก้ไข</a>
+                      <a href="{{ route('charge.edit',$charge->id)}}" class="btn btn-xs btn-info"><i class="fa fa-edit"></i>แก้ไข</a>
                       {{ Form::open(['route' => ['drug.destroy', $charge->id], 'method' => 'DELETE']) }}
-                      {{ Form::submit('ลบ', ['class' => 'btn btn-xs btn-danger']) }}
+                      {{-- {{ Form::submit('ลบ', ['class' => 'btn btn-xs btn-danger']) }} --}}
+                      <button type="submit" class="btn btn-xs btn-danger"><i class="fa fa-minus-circle"></i> ลบ</button>
+
                     </div>
                     {{ Form::close() }}
                  </td>

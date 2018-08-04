@@ -90,7 +90,7 @@ class ApiController extends Controller
     public function register(Request $request)
     {
       $app = Appointment::find($request->input('appid'));
-      $app->status = "ส่งตรวจ";
+      $app->status = "สำเร็จ";
       $app->save();
 
       $register = new Register;

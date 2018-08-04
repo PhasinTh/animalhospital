@@ -18,7 +18,7 @@
       </div>
       <div class="col-md-3 px-0">
         <button  class="btn btn-lg btn-dark w-100 select" id="waiting" >
-          <i class="fa  fa-2x">{{$appointments->where('status', 'ส่งตรวจ')->count()}}</i>
+          <i class="fa  fa-2x">{{$appointments->where('status', 'สำเร็จ')->count()}}</i>
           <p class="">มาตามนัด</p>
         </button>
       </div>
@@ -50,6 +50,7 @@
                     <th>โทรศัพท์</th>
                     <th>status</th>
                     <th class="text-center">#</th>
+                    <th class="text-center"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -69,10 +70,17 @@
                         </td>
                         <td class="text-center">
                           @if ($value->status == "นัดหมาย")
-                            <button type="button" name="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" onclick="setdata('{{$value->id}}','{{$value->diagnose->register->pet->id}}')">ส่งตรวจ</button>
                             <a href="{{route('appointment.show',$value->id)}}" class="btn btn-info">พิมพ์</a>
+                            <button type="button" name="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" onclick="setdata('{{$value->id}}','{{$value->diagnose->register->pet->id}}')">ส่งตรวจ</button>
                           @else
                             <a href="{{route('appointment.show',$value->id)}}" class="btn btn-info">ดูรายละเอียด</a>
+                          @endif
+                        </td>
+                        <td>
+                          @if ($value->status == "นัดหมาย")
+                          {{Form::open(['route'=>['appointment.destroy',$value->id],'method'=>'DELETE'])}}
+                          {{Form::submit('ยกเลิก',['class'=>'btn btn-danger'])}}
+                          {{Form::close()}}
                           @endif
                         </td>
                       </tr>
@@ -150,6 +158,18 @@
             info:false
           });
 
+          $.fn.dataTableExt.afnFiltering.length = 0;
+          $.fn.dataTable.ext.search.push(
+            function( settings, data, dataIndex ) {
+              var now = new Date();
+              // var createtime = Date.parse(data[7]);
+              var temp = data[0];
+              // temp = temp.replace(/\//g,"-");
+              var createtime = new Date(temp);
+              return createtime.getDate() == now.getDate() && data[8] == "นัดหมาย";
+          });
+          table.draw();
+
           $(".select").click(function () {
             var type = $(this).attr('id');
             var filter = "";
@@ -175,10 +195,10 @@
               done = true;
                 break;
               case "waiting":
-                filter = "รอ";
+                filter = "สำเร็จ";
                 break;
               case "done":
-                filter = "ชำระแล้ว";
+                filter = "ยกเลิก";
                 break;
               default:
                 done = false;
@@ -187,7 +207,7 @@
               $.fn.dataTableExt.afnFiltering.length = 0;
               $.fn.dataTable.ext.search.push(
                 function( settings, data, dataIndex ) {
-                  return data[6] == (filter);
+                  return data[8] == (filter);
               });
               table.draw();
             }

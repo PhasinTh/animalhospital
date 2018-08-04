@@ -26,7 +26,7 @@ class DiagnoseController extends Controller
      */
     public function index()
     {
-        $registers = Register::where('status','ส่งตรวจ')->where('emp_id',Auth::user()->id)->get();
+        $registers = Register::where('status','ส่งตรวจ')->get();
         return view('diagnose.index')->withRegisters($registers);
     }
 
@@ -150,5 +150,11 @@ class DiagnoseController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getSigle($id)
+    {
+      $registers = Register::where('status','ส่งตรวจ')->where('emp_id',$id)->get();
+      return view('diagnose.index')->withRegisters($registers);
     }
 }

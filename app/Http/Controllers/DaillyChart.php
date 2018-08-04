@@ -13,14 +13,18 @@ class DaillyChart extends Controller
       $data = [];
       foreach ($pettypes as $pettype => $value) {
         $temp = [];
+        $now = Carbon::now();
         for ($i=0; $i < 6; $i++) {
-          $permonth = $value->pets->where('created_at','<=',Carbon::now()->subMonth($i));
+          $permonth = $value->pets->where('created_at','<=',$now);
           $pet = $permonth->count();
-          if($pet > 0)
-            array_push($temp,["label"=>  $mont[(((Carbon::now()->format('m')-1) - $i)+11) % 11 ] ,"y"=>$pet]);
+          if($pet)
+            array_push($temp,["label"=>  $now->day.' '.$mont[($now->format('m')-1)].' '.$now->year,"y"=>$pet]);
+          $now->subWeek(1);
         }
         if($temp)
           array_push($data,(object)["type"=>"column","name"=>$value->name,"indexLabel" => "{y}","yValueFormatString"=> "##,###","showInLegend" => true,"dataPoints"=>$temp]);
+
+
 
       }
       // dd($data);

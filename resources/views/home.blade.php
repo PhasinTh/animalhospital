@@ -12,12 +12,12 @@
           <div class="card-header">
             <div class="row">
               <div class="col-md-3">
-                <i class="fa fa-user fa-5x"></i>
+                <i class="fa fa-calendar fa-5x"></i>
               </div>
               <div class="col-md-9 text-right">
                 <a href="{{route('veterinary.index')}}">
-                  <div class="huge">@{{stats.veterinary}}</div>
-                  <div class="title">สัตว์แพทย์</div>
+                  <div class="huge">{{$stats->veterinary}}</div>
+                  <div class="title">นัดหมายวันนี้</div>
                 </a>
               </div>
             </div>
@@ -52,7 +52,7 @@
               </div>
               <div class="col-md-9 text-right">
                 <a href="{{route('prescription.index')}}">
-                  <div class="huge">@{{stats.prescription}}</div>
+                  <div class="huge">{{$stats->prescription}}</div>
                   <div class="title">ใบสั่งยา</div>
                 </a>
               </div>
@@ -70,7 +70,7 @@
               </div>
               <div class="col-md-9 text-right">
                 <a href="{{route('diagnose.index')}}">
-                  <div class="huge">@{{stats.queue}}</div>
+                  <div class="huge">{{Helpers::waitingDiagnose()}}</div>
                   <div class="title">คิวรอบริการ</div>
                 </a>
               </div>
@@ -114,9 +114,9 @@
               <td>@{{ pet.customer.email }}</td>
               <td>@{{ pet.customer.tel }}</td>
               <td class="text-center">
-                <a href="" class="btn btn-success" ng-if="pet.registers_count">ส่งตรวจ</a>
+                <a href="" class="btn btn-success" ng-if="pet.registers_count">ส่งตรวจแล้ว</a>
               </td>
-              <td class="text-center">
+              <td class="text-left">
                 <button type="button" name="button" ng-click="history(pet.id)" class="btn btn-info">ประวัติการรักษา </button>
                 <button type="button" name="button" class="btn btn-danger" ng-click="redirect(pet.id)" ng-if="pet.registers_count == 0">ส่งตรวจ</button>
               </td>
@@ -352,21 +352,13 @@
       $scope.total = 0;
       $scope.pets = [];
       $scope.historys = [];
-      $scope.stats = [];
       $scope.prescription = [];
-
-      $http.get('{{url('api/stats')}}')
-      .then(function (response) {
-        $scope.stats = response.data;
-        // console.log($scope.stats);
-      });
 
       $scope.update = function () {
         $http.get('{{url('api/getPet')}}')
         .then(function (response) {
           $scope.pets = response.data;
-
-          console.log($scope.pets);
+          // console.log($scope.pets);
         });
       };
       $scope.update();

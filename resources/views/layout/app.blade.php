@@ -14,7 +14,6 @@
         <li class="breadcrumb-item">
           <a href="/">Home</a>
         </li>
-
         @php
           $paths = Request::path();
           $temp = explode("/",$paths);
@@ -27,9 +26,9 @@
             @php $path .= $value.'/' @endphp
             <li class="breadcrumb-item">
               @if (++$i === $numItems)
-                {{ $value }}
+                {{ ucfirst($value) }}
               @else
-                <a href="{{ url(rtrim($path,'.')) }}">{{ $value }}</a>
+                <a href="{{ url(rtrim($path,'.')) }}">{{ ucfirst($value) }}</a>
               @endif
             </li>
           @endif

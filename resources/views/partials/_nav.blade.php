@@ -77,7 +77,7 @@
           @if($waiting)
             @foreach ($waiting as $key => $value)
               <li>
-                <a href="" onclick="return false;">{{ mb_substr($value->name,0,15) }} <span class="badge badge-pill badge-light float-right">{{$value->registers_count}}</span></a>
+                <a href="{{ url('siglediagnose').'/'.$value->id}}" >{{ mb_substr($value->name,0,15) }} <span class="badge badge-pill badge-light float-right">{{$value->registers_count}}</span></a>
                   @if ( mb_strlen($value->name) > 15)
                     ...
                   @else
@@ -100,9 +100,9 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-fw fa-bell"></i>
-          <span class="d-lg-none">Alerts
+          {{-- <span class="d-lg-none">Alerts
             <span class="badge badge-pill badge-warning">6 New</span>
-          </span>
+          </span> --}}
           @if($queue && $queue->count())
             <span class="indicator text-warning d-none d-lg-block">
               <i class="fa fa-fw fa-circle"></i>

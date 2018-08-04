@@ -7,6 +7,7 @@ use App\Appointment;
 use App\Employee;
 use App\Setting;
 use PDF;
+use Session;
 class AppointmentController extends Controller
 {
 
@@ -90,7 +91,12 @@ class AppointmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $app = Appointment::find($id);
+        $app->status = "ยกเลิก";
+        $app->save();
+        Session::flash('success','ลบข้อมูลแล้ว');
+        return redirect()->route('appointment.index');
+
     }
 
     public function print($id)

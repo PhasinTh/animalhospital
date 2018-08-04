@@ -16,10 +16,12 @@
             </div>
             <div class="col-md-3">
               <div class="row">
-                <a href="{{route($url.'.edit',$veterinary->id)}}" class="btn btn-xs btn-info">แก้ไข</a>
-                {!! Form::open(['route' => [$url.'.destroy',$veterinary->id],'method'=>'DELETE' ]) !!}
-                {!! Form::submit("ลบ", ['class' => 'btn btn-xs btn-danger','style'=>'width:80px']) !!}
-                {!! Form::close() !!}
+                @if ($veterinary->id == Auth::user()->id)
+                  <a href="{{route($url.'.edit',$veterinary->id)}}" class="btn btn-xs btn-info">แก้ไข</a>
+                  {!! Form::open(['route' => [$url.'.destroy',$veterinary->id],'method'=>'DELETE' ]) !!}
+                  {!! Form::submit("ลบ", ['class' => 'btn btn-xs btn-danger','style'=>'width:80px']) !!}
+                  {!! Form::close() !!}
+                @endif
               </div>
 
             </div>

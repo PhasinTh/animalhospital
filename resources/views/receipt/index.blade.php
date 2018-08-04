@@ -10,7 +10,7 @@
         </div>
         <div class="col-md-3 px-0">
           <button class="btn btn-lg btn-secondary w-100 select" id="daily" >
-            <i class="fa  fa-2x">{{  $receipts->where('created_at', '>=', \Carbon\Carbon::today())->count() }}</i>
+            <i class="fa  fa-2x">{{  $receipts->where('updated_at', '>=', \Carbon\Carbon::today())->count() }}</i>
             <p class="">ประจำวัน</p>
           </button>
         </div>
@@ -88,6 +88,12 @@
       var table = $('#myTable').DataTable({
         info:false
       });
+      $.fn.dataTableExt.afnFiltering.length = 0;
+      $.fn.dataTable.ext.search.push(
+        function( settings, data, dataIndex ) {
+          return data[6] == ("รอ");
+      });
+      table.draw();
 
       $(".select").click(function () {
         var type = $(this).attr('id');

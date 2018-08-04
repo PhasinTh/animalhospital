@@ -41,13 +41,16 @@
   //route for Dianose and appointment
   Route::resource('appointment','AppointmentController');
   Route::resource('diagnose','DiagnoseController');
+  Route::get('siglediagnose/{id}','DiagnoseController@getSigle');
+  Route::get('siglediagnose',function () {
+    return redirect('diagnose');
+  });
+
 
   // route for utilties
   Route::resource('setting','SettingController');
   Route::get('dailychart','DaillyChart@index');
   Route::get('schedule','ScheduleController@index');
-
-
 
 
   Auth::routes();

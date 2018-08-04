@@ -100,7 +100,7 @@ class PetController extends Controller
         $pet->save();
 
         Session::flash('success',"บันทึกเรียบร้อย");
-        return redirect()->route('pet.index');
+        return redirect()->route('pet.show',$pet->id);
 
     }
 

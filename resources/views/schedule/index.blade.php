@@ -17,7 +17,7 @@
                 <th style="width:10%;" class="bg-gray text-white text-center">{{ $value->name }}</th>
                 @foreach ($value->employees as $key => $value)
                   <td>
-                    <a href="{{route('employee.show',$value->id)}}" class="btn btn-success">{{ $value->name }}</a>
+                    <a href="{{route('employee.show',$value->id)}}" class="btn btn-info">{{ $value->name }}</a>
                   </td>
                 @endforeach
               </tr>

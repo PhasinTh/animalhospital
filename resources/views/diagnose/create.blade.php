@@ -220,7 +220,7 @@
                                   </div>
                                   <div class="form-check" ng-repeat="charge in charges">
                                     <input type="checkbox" name="" ng-model="charge.isChecked" ng-checked="charge.isChecked" ng-change="checked(charge)">
-                                    <label class="form-check-label"> @{{ charge.name }} </label>
+                                    <label class="form-check-label"> @{{ charge.name }} &#xe3f;@{{ charge.price}} </label>
                                   </div>
 
 
@@ -267,8 +267,10 @@
             $("input[name*='detail']").prop('disabled', true);
             $("input[name*='fixture_time']").prop('disabled', true);
             $("input[name*='date']").prop('disabled', true);
+            $("input[name*='detail']").prop('required', false);
           }else {
             $("input[name*='detail']").prop('disabled', false);
+            $("input[name*='detail']").prop('required', true);
             $("input[name*='fixture_time']").prop('disabled', false);
             $("input[name*='date']").prop('disabled', false);
           }

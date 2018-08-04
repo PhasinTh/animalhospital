@@ -97,7 +97,10 @@ class DrugController extends Controller
      */
     public function show($id)
     {
-        //
+      $drug = Drug::find($id);
+      if($this->route == "charge")
+        return view('charge.show')->withDrug($drug);
+      return view('drug.show')->withDrug($drug);
     }
 
     /**

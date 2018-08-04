@@ -28,7 +28,11 @@
                   <td>{{ $register->pet->pettype->name }}</td>
                   <td>{{ $register->pet->speies }}</td>
                   <td>{{ $register->pet->customer->name }}</td>
-                  <td><a href="{{route('diagnose.show',$register->id)}}" class="btn btn-xs btn-info" style="height:35px;">ตรวจ</a></td>
+                  @if ($register->employee->id == Auth::user()->id)
+                    <td><a href="{{route('diagnose.show',$register->id)}}" class="btn btn-xs btn-info" style="height:35px;">ตรวจ</a></td>
+                  @else
+                    <td><button href="{{route('diagnose.show',$register->id)}}" class="btn btn-xs btn-danger" style="height:35px;" disabled>รอตรวจ</button></td>
+                  @endif
                   {{-- <td><a href="{{ route('veterinary.create') }}" class="btn btn-xs btn-success">ADD</a></td> --}}
                 </tr>
               @endforeach

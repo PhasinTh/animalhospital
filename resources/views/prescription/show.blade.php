@@ -59,27 +59,18 @@
                   <td>จำนวน</td>
                   <td>หน่วย</td>
                   <td>ราคา</td>
-                  @foreach ($prescription->prescriptioneetail as $index =>$prescriptionc)
                 </tr>
-                {{-- <tr ng-repeat="drug in temp">
-                  <td>@{{ $i + 1}}</td>
-                  <td>@{{ drug.drug.name }}</td>
-                  <td>@{{ drug.drug.description }}</td>
-                  <td>@{{ drug.quantity }}</td>
-                  <td>@{{ drug.drug.unit }}</td>
-                  <td>@{{ drug.drug.price }}</td>
-                  <td>
-                    <button type="button" name="button" ng-click="del(drug.drug.id)" class="btn btn-danger">ลบ</button>
-                  </td>
-                </tr> --}}
-                  <td>{{ ++$index }}</td>
-                  <td>{{ $prescriptionc->drug->name }}</td>
-                  <td>{{ $prescriptionc->drug->description  }}</td>
-                  <td>{{ $prescriptionc->quantity }}</td>
-                  <td>{{ $prescriptionc->drug->unit }}</td>
-                  <td>{{ $prescriptionc->drug->price }}</td>
-                <tr>
+                  @foreach ($prescription->prescriptioneetail as $index =>$prescriptionc)
+                  <tr>
+                    <td>{{ ++$index }}</td>
+                    <td>{{ $prescriptionc->drug->name }}</td>
+                    <td>{{ $prescriptionc->drug->description  }}</td>
+                    <td>{{ $prescriptionc->quantity }}</td>
+                    <td>{{ $prescriptionc->drug->unit }}</td>
+                    <td>{{ $prescriptionc->drug->price }}</td>
+                  </tr>
                   @endforeach
+                <tr>
                   <td colspan="4" rowspan="3"></td>
                   <td class="text-center">ราคารวม</td>
                   <td >{{ $total }}</td>

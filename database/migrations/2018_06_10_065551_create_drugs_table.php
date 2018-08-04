@@ -16,7 +16,7 @@ class CreateDrugsTable extends Migration
         Schema::create('drugs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->unsignedInteger('qty')->default(1);
             $table->string('unit')->nullable();
             $table->double('price', 8, 2);
