@@ -15,7 +15,7 @@
                 <i class="fa fa-calendar fa-5x"></i>
               </div>
               <div class="col-md-9 text-right">
-                <a href="{{route('veterinary.index')}}">
+                <a href="{{route('appointment.index')}}">
                   <div class="huge">{{$stats->veterinary}}</div>
                   <div class="title">นัดหมายวันนี้</div>
                 </a>

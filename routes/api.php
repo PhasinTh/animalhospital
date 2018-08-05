@@ -42,3 +42,4 @@ Route::get('getinfo/{id}','Api\ApiController@getprescription');
 Route::get('stats','Api\ApiController@getStats');
 Route::get('getappointments','Api\ApiController@getAppointments');
 Route::get('inroom','Api\ApiController@inroom');
+Route::get('getchart/{number}','Api\ApiController@getChart');

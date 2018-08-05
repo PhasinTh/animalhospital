@@ -15,6 +15,7 @@ use App\Prescription;
 use App\Pettype;
 use App\User;
 use App\Diagnose;
+use Carbon\Carbon;
 use Session;
 
 
@@ -110,6 +111,31 @@ class ApiController extends Controller
         array_push($temp,(object)["register"=>$value,"pet"=>$value->pet,"customer"=>$value->pet->customer,"diagnose"=>$value->diagnose,"veterinary"=>$value->diagnose->employee]);
       }
       return response()->json($temp);
+    }
+
+    public function getChart($number)
+    {
+      $mont = ["มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม"];
+      $pettypes = Pettype::all();
+      $data = [];
+      foreach ($pettypes as $pettype => $value) {
+        $temp = [];
+        $now = Carbon::now();
+        for ($i=0; $i < $number; $i++) {
+          $permonth = 0;
+          $temnow = clone $now;
+          foreach ($value->pets as $pet) {
+            $upperbound = clone $temnow;
+            $permonth += $pet->registers->where('created_at','>=',$upperbound->subMonth(1))->where('created_at','<=',$now)->count();
+          }
+            array_push($temp,["label"=>  $mont[($now->format('m')-1) + 12 % 12].' '.$now->year,"y"=>$permonth]);
+          $now->subMonth(1);
+        }
+        if($temp)
+          array_push($data,(object)["type"=>"column","name"=>$value->name,"indexLabel" => "{y}","yValueFormatString"=> "##,###","showInLegend" => true,"dataPoints"=>$temp]);
+      }
+
+      return response()->json($data);
     }
 
 
