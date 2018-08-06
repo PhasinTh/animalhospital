@@ -61,12 +61,13 @@
                   <td>{{ $receipt->status }}</td>
                   <td>{{ \Carbon\Carbon::parse($receipt->created_at)->format("m/d/Y") }}</td>
                   <td>
-                    @if ($receipt->status == "ชำระแล้ว")
-                      <a href="{{route('receipt.show',$receipt->id)}}" class="btn btn-xs btn-danger w-100" style="height:35px;">ดูข้อมูล</a>
-                    @else
-                      <a href="{{route('receipt.show',$receipt->id)}}" class="btn btn-xs btn-info w-100" style="height:35px;">ชำระ</a>
+                    @if (Auth::user()->emptypeId == 3)
+                      @if ($receipt->status == "ชำระแล้ว")
+                        <a href="{{route('receipt.show',$receipt->id)}}" class="btn btn-xs btn-danger w-100" style="height:35px;">ดูข้อมูล</a>
+                      @else
+                        <a href="{{route('receipt.show',$receipt->id)}}" class="btn btn-xs btn-info w-100" style="height:35px;">ชำระ</a>
+                      @endif
                     @endif
-
                   </td>
                   {{-- <td><a href="{{ route('veterinary.create') }}" class="btn btn-xs btn-success">ADD</a></td> --}}
                 </tr>

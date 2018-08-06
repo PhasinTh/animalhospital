@@ -17,6 +17,7 @@
             </div>
           </div>
         </div>
+        @if (Auth::user()->emptypeId == 1)
         <div class="col-md-3 pt-3">
           <div class="row justify-content-end">
             {{-- <a href="#" class="btn btn-xs btn-info">ประวัติการรักษา</a> --}}
@@ -30,23 +31,26 @@
             </div>
           </div>
 
-          <div class="row justify-content-end pt-5">
-            {{-- <a href="#" class="btn btn-xs btn-info">ส่งตรวจ</a> --}}
-            {!! Form::open(['route'=>'registation.store']) !!}
-            {!! Form::hidden('pet_id', $pet->id, []) !!}
-              <div class="row form-row">
-                <div class="form-group col-md-9">
-                  {!! Form::select('employee_id',$veterinaries,null,["class"=>"form-control"]) !!}
-                </div>
-                <div class="form-group col-md-3">
-                  {!! Form::submit("ส่งตรวจ", ['class'=>'btn btn-xs btn-info']) !!}
-                </div>
-            {{-- </div> --}}
-            </div>
-          {!! Form::close() !!}
-        </div>
+            <div class="row justify-content-end pt-5">
+              {{-- <a href="#" class="btn btn-xs btn-info">ส่งตรวจ</a> --}}
+              {!! Form::open(['route'=>'registation.store']) !!}
+              {!! Form::hidden('pet_id', $pet->id, []) !!}
+                <div class="row form-row">
+                  <div class="form-group col-md-9">
+                    {!! Form::select('employee_id',$veterinaries,null,["class"=>"form-control"]) !!}
+                  </div>
+                  <div class="form-group col-md-3">
+
+                      {!! Form::submit("ส่งตรวจ", ['class'=>'btn btn-xs btn-info']) !!}
+
+                  </div>
+              {{-- </div> --}}
+              </div>
+            {!! Form::close() !!}
+          </div>
 
       </div>
+      @endif
     </div>
   </div>
 

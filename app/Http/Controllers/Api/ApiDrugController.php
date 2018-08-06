@@ -26,7 +26,7 @@ class ApiDrugController extends Controller
 
   public function getDrugs()
   {
-    return response()->json(Drug::where('drugtype_id',1)->get());
+    return response()->json(Drug::where('drugtype_id',1)->where("qty",">",0)->get());
   }
 
   public function getCharge()

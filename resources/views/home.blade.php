@@ -105,7 +105,11 @@
               <td>Email</td>
               <td>โทรศัพท์</td>
               <td class="text-center">สถานะ</td>
-              <td class="text-center"><a href="" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus-circle fa-2x"></i></a></td>
+              <td class="text-center">
+                @if (Auth::user()->emptypeId == 1)
+                  <a href="" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus-circle fa-2x"></i></a>
+                @endif
+              </td>
             </tr>
             <tr ng-repeat="pet in pets|filter : search|limitTo:5">
               <td>@{{ pet.name }}</td>
@@ -118,7 +122,9 @@
               </td>
               <td class="text-left">
                 <button type="button" name="button" ng-click="history(pet.id)" class="btn btn-info">ประวัติการรักษา </button>
-                <button type="button" name="button" class="btn btn-danger" ng-click="redirect(pet.id)" ng-if="pet.registers_count == 0">ส่งตรวจ</button>
+                @if (Auth::user()->emptypeId == 1)
+                  <button type="button" name="button" class="btn btn-danger" ng-click="redirect(pet.id)" ng-if="pet.registers_count == 0">ส่งตรวจ</button>
+                @endif
               </td>
             </tr>
           </table>

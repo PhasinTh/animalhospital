@@ -17,7 +17,11 @@
                     <th>เจ้าของ</th>
                     <th>เบอร์โทรศัพท์</th>
                     <th>สถานะ</th>
-                    <th colspan=""><a href="{{ route('pet.create')}}" class="btn btn-xs btn-success"><i class="fa fa-plus-circle"></i></a></th>
+                    <th colspan="">
+                      @if (Auth::user()->emptypeId == 1)
+                        <a href="{{ route('pet.create')}}" class="btn btn-xs btn-success"><i class="fa fa-plus-circle"></i></a>
+                      @endif
+                    </th>
                   </tr>
                 </thead>
                 <tbody>

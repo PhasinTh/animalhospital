@@ -20,7 +20,14 @@
             </thead>
             <tbody>
               @foreach ($drugs as $drug)
-                <tr>
+                @if ($drug->qty < 2)
+                  <tr style="background:#EF9A9A;">
+                @elseif ($drug->qty < 5)
+                  <tr style="background:#F7DB4F;">
+                @else
+                  <tr>
+                @endif
+
                   <td>{{ $drug->name }}</td>
                   <td>{{ $drug->description }}</td>
                   <td>{{ $drug->qty }}</td>

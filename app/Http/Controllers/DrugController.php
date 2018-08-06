@@ -65,8 +65,8 @@ class DrugController extends Controller
         $request->validate([
           'drugname'    =>  'required',
           'drugdetail'  =>  'nullable',
-          'drugqty'  =>  'nullable|numeric',
-          'drugprice'  =>  'required|numeric'
+          'drugqty'  =>  'nullable|numeric|min:1',
+          'drugprice'  =>  'required|numeric|min:1'
         ]);
 
         $drug = new Drug;
@@ -130,9 +130,9 @@ class DrugController extends Controller
 
         $request->validate([
           'name'    =>  'required',
-          'description'  =>  'required|nullable',
-          'qty'  =>  'required|numeric',
-          'price'  =>  'required|numeric'
+          'description'  =>  'nullable',
+          'qty'  =>  'required|numeric|min:1',
+          'price'  =>  'required|numeric|min:1'
         ]);
 
       $drug = Drug::find($id);
