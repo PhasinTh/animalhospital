@@ -1,3 +1,40 @@
+# ออกแบบและพัฒนาโปรแกรมบริหารจัดการโรงพยาบาลสัตว์
+โปรเจคพัฒนาโปรแกรมโรงพยาบาลสัตว์เป็นโปรแกรมที่ผู้เขียนทำขึ้นเพื่อการเรียนรู้และฝึกฝนการใช้งาน Laravel Framework ในการพัฒนาโปรแกรมในภาษา PHP เท่านั้นหากท่านใดสนใจในการพัฒนาต่อยอดสามารถดาวน์โหลดโค้ดและแก้ไขได้ฟรี
+  
+## ฟังก์ชัน
+- ระบบบันทึกข้อมูล พนักงาน,สัตว์เลี้ยง,เจ้าของ
+- ระบบลงทะเบียนเข้ารับการตรวจรักษา
+- ระบบบันทึกข้อมูลและจัดการ การตรวจรักษา/สั่งยา/นัดหมาย
+- ระบบจัดการการชำระค่ารักษา
+- ระบบจัดการคลังยา
+- ระบบสถิติและรายงาน
+### ออกแบบระบบ
+<div style="text-align:center;margin-left:auto;margin-right:auto;">
+  <img src="https://i.imgur.com/COIceUV.png" style="text-align:center;margin-left:auto;margin-right:auto;">
+  <img src="https://i.imgur.com/8sO6Xt6.png" style="text-align:center;margin-left:auto;margin-right:auto;">
+  <img src="https://i.imgur.com/qK82Qdx.png" style="text-align:center;margin-left:auto;margin-right:auto;">
+</div>
+
+### ตัวอย่างการใช้งาน
+<div style="text-align:center">
+  <img src="https://i.imgur.com/F6RYPZl.png">
+  <img src="https://i.imgur.com/FtDPphF.png">
+</div>
+<div style="text-align:center">
+  <img src="https://i.imgur.com/z1qG0cl.png">
+  <img src="https://i.imgur.com/lfPpyYi.png">
+</div>
+<div style="text-align:center">
+  <img src="https://i.imgur.com/C2fI6oE.png">
+  <img src="https://i.imgur.com/j4ATIT7.png">
+</div>
+<div style="text-align:center">
+  <img src="https://i.imgur.com/FJZtzkj.png">
+  <img src="https://i.imgur.com/jJRfXFH.png">
+  <img src="https://i.imgur.com/b7zqBCq.png">
+</div>
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
